@@ -1,0 +1,30 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-size: 10px;
+}
+
+:root{
+    --hd_success:#2DDE98;
+    --hd_blu_1:#1CC7D0;
+    --hd_blu_2:#00AEFF;
+    --hd_blu_3:#3369E7;
+    --hd_dark_drk:#050F2C;
+    --hd_dark_rgt:#003666;
+    --hd_warn:#FFC168;
+    --hd_danger:#FF6C5F;
+}
+
+.nav{
+    top:0px;
+    background-color: var(--hd_blu_3);
+    position: sticky;
+    color: white;
+    z-index: 10000;
+}
+
+.brand-logo{
+    font-size:1.2rem ;
+}
+
+

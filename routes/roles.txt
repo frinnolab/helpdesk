@@ -1,0 +1,4 @@
+1-SuperAdmin
+2-SystemUser
+3-CompanyAdmin
+4-CompanyUser

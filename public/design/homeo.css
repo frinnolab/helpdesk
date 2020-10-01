@@ -1,0 +1,51 @@
+.home{
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+background-color: var(--hd_blu_3);
+}
+
+.home_left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color:white ;
+}
+
+.home_right{
+    padding: 30px;
+}
+
+.card{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn_sgnp{
+    background-color: var(--hd_blu_3);
+    padding: 0px 80px;
+    margin: 10px;
+}
+
+.btn_sgnp:hover{
+    background-color: var(--hd_blu_2);
+}
+.sgn-up{
+color: grey;
+}
+
+.sgn-up:hover{
+    color: var(--hd_blu_2);
+}
+
+
+
+
