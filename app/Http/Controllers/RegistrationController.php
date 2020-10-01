@@ -44,7 +44,7 @@ class RegistrationController extends Controller
         $request['remember_token'] = Str::random(10);
 
         $user_status            =           User::where("email", $request->email)->first();
-$a=1;
+
         if(!is_null($user_status)) {
            return response()->json([
                "status" => "failed",
@@ -58,31 +58,14 @@ $a=1;
         $mobile = $request['mobile'];
         $fullname = $request['fullname'];
 
-        $role = 1;
-
-        // if (is_null($role)){
-        //     $role = 1;//Super Admin
-        // }
-
-        // if (is_null($company)){
-        //     $company = 1;//Super Admin
-        // }
-
         $a=1;
+
 
 
         if ($role==1){
             //Super Admin
             //redirects to user's dashboard based on role.
             $a=2;
-            // $user = User::create([
-            //     'fullname' => $fullname,
-            //     'email' => $request['email'] ,
-            //     'password' => $request['password'] ,
-            //     'role_id' => $role ,
-            //     'company_id' => $company ,
-            //     'mobile' => $mobile
-            // ]);
 
             DB::table('users')->insert([
                 'fullname' => $fullname,
@@ -105,38 +88,36 @@ $a=1;
             //System User
             //redirects to user's dashboard based on role.
             $a=2;
-            $user = User::create([
+            DB::table('users')->insert([
                 'fullname' => $fullname,
                 'email' => $request['email'] ,
                 'password' => $request['password'] ,
                 'role_id' => $role ,
                 'company_id' => $company ,
-                'mobile' => $mobile
+                'mobile' => $mobile,
+                'remember_token'=>$request['remember_token'],
+                'created_at'=>\Carbon\Carbon::now()
             ]);
 
             $a=3;
-
-            auth()->login($user);
-
             return redirect()->route('home');
 
         }else if ($role==3){
-            //Compan Admin
+            //Company Admin
             //redirects to user's dashboard based on role.
             $a=2;
-            $user = User::create([
+            DB::table('users')->insert([
                 'fullname' => $fullname,
                 'email' => $request['email'] ,
                 'password' => $request['password'] ,
                 'role_id' => $role ,
                 'company_id' => $company ,
-                'mobile' => $mobile
+                'mobile' => $mobile,
+                'remember_token'=>$request['remember_token'],
+                'created_at'=>\Carbon\Carbon::now()
             ]);
 
             $a=3;
-
-            auth()->login($user);
-
             return redirect()->route('companydash');
 
         }

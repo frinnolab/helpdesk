@@ -10,7 +10,8 @@
         <div class="card">
             <label class="card-title" >Login to your Company</label>
             <div class="card-content">
-                <form class="form" method="POST" action="{{route('logon')}}">
+                <form class="form" method="POST" action="{{route('logon')}}" >
+                    {{ csrf_field() }}
                     <div class="input-field col s6">
                       {{-- <i class="material-icons prefix">email</i> --}}
                       {{-- <i class="address-book icon"></i> --}}

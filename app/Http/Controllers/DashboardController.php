@@ -27,16 +27,18 @@ class DashboardController extends Controller
         return view('Dashboards.admin',compact('data',$data));
     }
 
-    // public function company()
-    // {
-    //     $user = Auth::user();
-    //     $company = Auth::user();
+    public function company()
+    {
+        $a = 0;
+        $user = Auth::user();
 
-    //     $data = [
-    //         'user'=>$user,
-    //         'company'=>
-    //     ];
+        //Checki if user Has Company
 
-    //     return view('Dasboards.company',compact('data',$data));
-    // }
+
+        $data = [
+            'user'=>$user,
+        ];
+
+        return view('Dashboards.company',compact('data',$data));
+    }
 }

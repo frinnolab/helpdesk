@@ -8,29 +8,34 @@
         <h3 class="hlltxt0">+255700123654</h3>
         <div class="quick-actions">
                         <!-- Dropdown Trigger -->
-            <a class='dropdown-trigger btn' href='#' data-target='dropdown2'>More Settings</a>
+            <a class='dropdown-trigger btn btn-sttngs' href='#' data-target='dropdown2'>More Settings</a>
 
             <!-- Dropdown Structure -->
             <ul id='dropdown2' class='dropdown-content'>
-                <li><a href="#!">New Task Item</a></li>
-                <li><a href="#!">New Team Member</a></li>
+                <li>
+                  <a href="#!" >New Role</a>
+                </li>
+                <li>
+                  <a href="#!" >New Member</a>
+                </li>
+
                 <li class="divider" tabindex="-1"></li>
-                <li><a href="#!">three</a></li>
-                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                <li>
+                  <a href="#!">New Service</a>
+                </li>
             </ul>
 
         </div>
     </div>
 
     <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
-        <li class="tab"><a href="#test1">Tickets</a></li>
-        <li class="tab"><a class="active" href="#test2">Companies</a></li>
-        <li class="tab disabled"><a href="#test3">Services</a></li>
-        <li class="tab"><a href="#test4">Team</a></li>
+        <li class="tab"><a class="active" href="#tickets">Tickets</a></li>
+        <li class="tab"><a  href="#Companies">Companies</a></li>
+        <li class="tab disabled"><a href="#Services">Services</a></li>
+        <li class="tab"><a href="#Team">Team</a></li>
       </ul>
 
-      <div id="test1" class="col s12">
+      <div id="tickets" class="col s12">
           <div class="table-list">
               {{-- Tickects Tab --}}
               <div class="table-actions card">
@@ -114,7 +119,7 @@
           </div></div>
 
           {{-- COMPANY TAB --}}
-      <div id="test2" class="col s12">
+      <div id="Companies" class="col s12">
             <div class="table-list">
                 <div class="table-actions card">
                     {{-- Search --}}
@@ -178,11 +183,11 @@
               {{-- Pagination End --}}
             </div>
         </div>
-      <div id="test3" class="col s12">
+      <div id="Services" class="col s12">
 
         </div>
 
-      <div id="test4" class="col s12">
+      <div id="Team" class="col s12">
         <div class="table-list">
             <div class="table-actions card">
 
@@ -194,7 +199,7 @@
                       <th>Name</th>
                       <th>Email</th>
                       <th>Mobile</th>
-                      <th>Task</th>
+                      <th>Role</th>
                       <th>Manage</th>
                       <th>Delete</th>
                   </tr>
@@ -254,6 +259,10 @@
     font-size: 10px;
 }
 
+.btn-sttngs{
+  background-color: var(--hd_blu_3);
+}
+
 .tabs{
     display: flex;
     align-items: center;
@@ -266,9 +275,11 @@
     max-width: 100%;
     background-color: whitesmoke;
     color: whitesmoke;
-    border-bottom: 3px solid var(--hd_warn);
+    border-bottom: 3px solid white;
     margin: 10px;
 }
+
+
 
 .table-list{
     display: flex;

@@ -3,11 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use DB;
 
 class HomeController extends Controller
 {
+
+
     //
     public function index(){
+        $user = Auth::user();
+
+        if (!is_null($user)) {
+            # code...
+            return redirect()->route('admindash');
+        }
 
         return view('Home.home');
     }

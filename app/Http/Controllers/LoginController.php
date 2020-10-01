@@ -62,19 +62,31 @@ class LoginController extends Controller
 
             switch ($role){
 
-                case 1://Admin role
+                case 1://System Admin
                     //return route('admindash');
                     return redirect()->route('admindash');
                 break;
 
-                case 2://Tenant
+                case 2://System User
                 $a = 0;
                 //return route('hutdash');
-                return redirect()->route('hutdash');
+                return redirect()->route('home');
                 break;
 
+                case 3://Company Admin
+                    $a = 0;
+                    //return route('hutdash');
+                    return redirect()->route('companydash');
+                    break;
+
+                case 4://Company User
+                    $a = 0;
+                        //return route('hutdash');
+                    return redirect()->route('companydash');
+                    break;
+
                 default:
-                    return redirect()->route('userdash');
+                    return redirect()->route('home');
             }
                 return redirect()->route('login');
         // }
@@ -86,11 +98,10 @@ class LoginController extends Controller
 
 
     public function logout(){
-        Session::flush();
         Auth::logout();
 
         //auth()->logout();
 
-        return redirect('/');
+        return redirect()->route('home');
     }
 }

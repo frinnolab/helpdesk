@@ -20,13 +20,7 @@
          @stack('styles')
     </head>
     <body>
-                        <!-- Dropdown Structure -->
-            <ul id="dropdown1" class="dropdown-content">
-                <li><a href="#!">Account</a></li>
-                {{-- <li><a href="#!"></a></li> --}}
-                <li class="divider"></li>
-                <li><a href="#!">Logout</a></li>
-            </ul>
+
             {{-- Navbar --}}
             <nav class="nav">
                 <div class="nav-wrapper">
@@ -34,12 +28,43 @@
                     <ul class="right hide-on-med-and-down">
                         <li><a href="{{route('services')}}">Services</a></li>
                         <li><a href="badges.html">FAQS</a></li>
+                        @guest
+                            {{-- <li><a href="{{route('home')}}">Login</a></li>
+
+                            @if (Route::has('adminform'))
+                                <li><a href="{{route('adminform')}}">Register</a></li>
+                            @endif --}}
+                        @else
                         <!-- Dropdown Trigger -->
                         <li>
-                            <a class="dropdown-trigger" href="#!" data-target="dropdown1">User
-                                    {{-- <i class="material-icons right">arrow_drop_down</i> --}}
+                            <a class="dropdown-trigger" href="#!" data-target="dropdown1">{{ Auth::user()->fullname }}
+                                    <i class="material-icons right">arrow_drop_down</i>
                             </a>
                         </li>
+
+                                      <!-- Dropdown Structure -->
+                        <ul id="dropdown1" class="dropdown-content">
+                            @if (Auth::user())
+                                @if (Auth::user()->role_id == 1)
+                                    <li><a href="{{route('admindash')}}">Account</a></li>
+                                @endif
+                            @else
+                                <li><a href="{{route('home')}}">Login</a></li>
+                            @endif
+                            {{-- <li><a href="#!"></a></li> --}}
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                        @endguest
                     </ul>
                 </div>
             </nav>
