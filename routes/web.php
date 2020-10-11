@@ -24,6 +24,8 @@ Route::get('/services','HomeController@services')->name('services');
 //Auth
 Route::get('/sign-up-admin','RegistrationController@adminform')->name('adminform');
 Route::get('/sign-up','RegistrationController@form')->name('signupform');//Sign up Company Admin
+Route::get('/sign-company','RegistrationController@companyform')->name('companyform');//Sign up Company
+Route::post('/new-company','RegistrationController@newCompany')->name('companynew');//Nwe Company
 Route::post('/register','RegistrationController@userSignUp')->name('signup');
 
 

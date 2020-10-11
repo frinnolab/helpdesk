@@ -76,6 +76,8 @@ class LoginController extends Controller
                 case 3://Company Admin
                     $a = 0;
                     //return route('hutdash');
+
+
                     return redirect()->route('companydash');
                     break;
 

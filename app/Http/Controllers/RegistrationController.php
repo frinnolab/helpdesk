@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Company;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -26,6 +27,14 @@ class RegistrationController extends Controller
     public function adminform(){
 
         return view('Auth.admin');
+    }
+    public function companyform(){
+        $user = Auth::user();
+
+        $data = [
+            'user'=>$user
+        ];
+        return view('Auth.newcompany', compact($data));
     }
 
 
@@ -151,7 +160,24 @@ class RegistrationController extends Controller
         }
     }
 
-    public function logout(Request $request){
+    public function newCompany(Request $request){
+        $a = 0;
+        $user = Auth::user();
+
+        DB::table('companies')->insert([
+            'fullname' => $request['fullname'],
+            'email' => $request['email'] ,
+            'address' => $request['address'] ,
+            'contact' => $request['contact'] ,
+            'contact_person_id' => $user->id ,
+            'created_at'=>\Carbon\Carbon::now()
+        ]);
+
+        $a = 0;
+
+        return redirect()
+        ->route()
+        ->back();
 
     }
 
